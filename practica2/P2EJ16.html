@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 16</title>
+        <style>
+            html {
+                font-family: sans-serif;
+            }
+            body{
+                width: 50%;
+                max-width: 800px;
+                min-width: 480px;
+                margin: 0 auto;
+            }
+            div{
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                padding: 3%;
+            }
+            #resultado{
+                background: #ffbae6;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Ingrese números a sumar</h1>
+        </div>
+        <div>
+            <form>
+                <input type = "text" id = "i1"/>
+                <input type = "text" id = "i2"/>
+                <input type="button" value="Sumar" onclick="enviar()"/>
+            </form> 
+        </div>
+        <div id = "resultado">
+            <p>Resultado</p>
+            <input type = "text" id = "res" readonly= "readonly"/>
+        </div>
+    </body>
+    <script src="P2E16.js">
+
+    </script>
+</html>

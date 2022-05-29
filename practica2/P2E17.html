@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Ejercicio 17</title>
+        <style>
+            html {
+                font-family: sans-serif;
+            }
+            body{
+                width: 50%;
+                max-width: 800px;
+                min-width: 480px;
+                margin: 0 auto;
+            }
+            div{
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                padding: 3%;
+            }
+            #resultado{
+                background: #e69704;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Ingrese operandos</h1>
+        </div>
+        <div>
+            <form>
+                <input type = "text" id = "i1"/>
+                <input type = "text" id = "i2"/>
+
+                <div>
+                    <input type="button" value="Sumar"       onclick="enviar()"/>
+                    <input type="button" value="Restar"      onclick="enviar()"/>
+                    <input type="button" value="Multiplicar" onclick="enviar()"/>
+                    <input type="button" value="Dividir"     onclick="enviar()"/>
+                </div>  
+            </form> 
+        </div>
+        <div id = "resultado">
+            <p>Resultado </p>
+            <input type = "text" id = "res" readonly= "readonly"/>
+        </div>
+    </body>
+    <script src="P2E17.js">
+    </script>
+</html>

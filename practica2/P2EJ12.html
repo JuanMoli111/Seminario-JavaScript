@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function reduce(array, binaryFunction, initialValue){
+            if(array.length === 0) {
+                return initialValue;
+            } else {
+                const [primero, ...resto] = array;
+                const resultado = binaryFunction(initialValue, primero);
+                return reduce(resto, binaryFunction, resultado);
+            }
+        }
+
+        var numbers = [ 1, 3, 4, 6, 23, 56, 56, 67, 3,
+        567, 98, 45, 480, 324, 546, 56 ];
+
+        var sum = (x, y) => x + y;
+        console.log("Reduce original: " + numbers.reduce(sum, 0))
+        console.log("Reduce implementado: " + reduce(numbers, sum, 0));
+
+    </script>
+</html>

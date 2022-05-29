@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        var alice = {
+        name : "Alice",
+        dob : new Date(2001, 3, 4),
+        height : 165,
+        weight : 68
+        };
+        var bob = {
+        name : "Robert",
+        dob : new Date(1997, 0, 31),
+        height : 170,
+        weight : 88
+        };
+        var charly = {
+        name : "Charles",
+        dob : new Date(1978, 9, 15),
+        height : 188,
+        weight : 102
+        };
+        var lucy = {
+        name : "Lucía",
+        dob : new Date(1955, 7, 7),
+        height : 155,
+        weight : 61
+        };
+        var peter = {
+        name : "Peter",
+        dob : new Date(1988, 2, 9),
+        height : 165,
+        weight : 99
+        };
+        var luke = {
+        name : "Lucas",
+        dob : new Date(1910, 11, 4),
+        height : 172,
+        weight : 75
+        };
+
+        /*1. Implemente una función que devuelva un arreglo 
+        con los nombres de las personas con un IMC mayor a 25.
+        */
+        const vector = [alice, bob, charly, lucy, peter, luke];
+        
+        function iMC(object){
+            return(object.weight) / ((object.height/100) ** 2)
+        }
+        function uno(array){
+            let v_res = [];
+            array.forEach(e => {
+                const IMC = iMC(e);
+                if (IMC<25) v_res.push(e.name);
+            });
+            return v_res;
+        }
+        console.log(uno(vector));
+        //console.log(vector.filter(e => (IMC(e) <25 ));
+
+        /*
+        2. Implemente una función que devuelva un arreglo de las edades de 
+        las personas indexado por el nombre de cada una. 
+        (Por ejemplo algo de la forma ["Bobby": 22, "Mark": 36]).    
+        */
+        function getEdad(object){
+            return new Date().getFullYear() - object.dob.getFullYear();
+        }
+
+        function dos(array){
+            let objeto = {};
+            array.forEach(function(x){
+                const edad = getEdad(x);
+                objeto[x.name] = edad;
+            });
+            return objeto;
+        }
+        console.log(dos(vector));
+
+        /*
+        3. Implemente una función que devuelva un arreglo con el IMC de los mayores de 40 
+        */    
+        function tres(array){
+            const v_filtrado = array.filter(e => getEdad(e) > 40);
+            let res = {};
+            v_filtrado.forEach(e => {
+                res[e.name]= (iMC(e));
+            });
+            return res;
+        }
+        console.log(tres(vector));
+
+        /*
+        4. Implemente una función que devuelva el IMC promedio de todas las personas.
+        */
+        
+        function cuatro(array){
+            let suma = 0;
+            array.forEach(e=> suma += iMC(e))
+            return (suma / array.length)
+        }
+        console.log(cuatro(vector));
+
+        /*
+        5. Implemente una función que devuelva a la persona más joven.
+        */
+       function cinco(array){
+            let min = 9999;
+            array.forEach(element => {
+                if (getEdad(element)<min) min = getEdad(element);
+            });
+            return min;
+       }
+
+       console.log(cinco(vector))
+       /*
+       6. Implemente una función que devuelva un arreglo de personas ordenado por estatura.
+       */
+       function seis(array){
+           const aux = array.slice();
+           return aux.sort((a,b)=> a.height - b.height)
+       }
+       
+       console.log(seis(vector))
+       
+    </script>
+</html>

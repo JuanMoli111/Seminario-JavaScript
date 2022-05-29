@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function isNumeric(s){
+            return typeof(s)=== "string" && !isNaN(s);
+        }
+        
+        console.log(
+        isNumeric("2"), // retorna true
+        isNumeric("2a"), // retorna false
+        isNumeric(2) // retorna false
+        )
+        </script>
+</html>

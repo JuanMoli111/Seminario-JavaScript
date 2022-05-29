@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function total(p, a){
+            total = 0;
+            for (i=0; i<Object.values(p).length; i++)
+                total += Object.values(p)[i] * Object.values(a)[i];
+            return total;
+        }
+
+        var prices = {
+        MILK: 48.90,
+        BREAD: 90.50,
+        BUTTER: 130.12
+        }
+
+        var amounts = {
+        MILK: 1,
+        BREAD: 0.5,
+        BUTTER: 0.2
+        }
+        
+        console.log(typeof prices);
+        console.log(prices.BREAD);
+        console.log(amounts["MILK"]);
+        console.log(total(prices, amounts))
+    </script>
+</html>

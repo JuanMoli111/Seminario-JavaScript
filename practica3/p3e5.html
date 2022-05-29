@@ -1,0 +1,91 @@
+
+
+<head>
+    <title> RICKK Y MORTYYYY YEEEAAAEEEHEEH </title>
+
+    
+
+    <script type="text/javascript">
+
+        const MAX_HEIGHT = 800;
+        const DELAY_SECONDS = 2;
+
+        function getEpisodios(name){
+
+            
+            console.log(name)
+
+            //Fetch devuelve un objeto promise, recibir el promise y pasarle al .then, una funcion que convierta esa respuesta de JSON a un objeto en JS
+            fetch('https://rickandmortyapi.com/api/episode')
+            .then(response => response.json())
+            .then(data => data["results"])
+            .then(data => data.filter(info => info["name"].includes(name)))
+            .then(data => data.map(info => [info["name"],info["air_date"]]))
+            .then(eps => MostrarEpisodios(eps))
+            .catch(err => console.log('No se encontro ese nombre'));
+
+            //el metodo Then recibe una funcion callback, que es la funcion que se va a ejecutar cuando se reciba el fetch,
+            // por eso es asincronico, no se sabe cuando llegara la informacion pero cuando llegue se ejecuta la funcion
+            
+        }
+
+        //Muestra la imagen recibida de la api, setea el timer para recibir la proxima
+        function MostrarEpisodios(eps){
+
+            //let input = document.getElementsByClassName('input')
+
+
+            let div = document.getElementById('divv')
+            let ul = document.getElementsByTagName('ul')
+
+            document.getElementById('input').value = ''
+            
+            if(ul.length != 0){
+                for(let i = 0; i < ul.length; i++) div.removeChild(ul[i])
+            }
+
+            console.log(eps)
+
+            eps.forEach(ep => {
+                //Crea un elemento Unordered list!!
+                let ul = document.createElement('ul');
+
+            
+                ep.forEach(data =>{
+
+                    let li = document.createElement('li')
+
+                    li.innerHTML = data
+                    ul.appendChild(li)
+                });
+
+            //Agregar la nueva imagen
+            div.appendChild(ul);
+            
+            });
+
+
+        }
+
+
+        
+        
+    </script>
+    
+
+</head>
+
+<!-- Cuando se cargue el elemento body, ejectuar michi()  -->
+<body>
+
+    <h1>BUUUUUUUUUUURP </h1>
+
+    <input type="text" id="input">
+    <button class="button" style="height: 25; width: fit-content" onclick="getEpisodios(document.getElementById('input').value)"> Buscar </button>
+
+    <div id="divv"></div>
+
+
+</body>
+
+</html>

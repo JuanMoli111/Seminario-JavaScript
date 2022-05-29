@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function ordenar(v){
+            v.sort(function (a, b) {
+                return a.length - b.length;
+            });
+        }
+
+        var words = ['perro', 'gato', 'casa',
+        'árbol', 'nube', 'día', 'noche',
+        'zanahoria', 'babuino'];
+        var atoz = [ "árbol", "babuino", "casa", "día", "gato",
+        "noche", "nube", "perro", "zanahoria"]
+        var ztoa = ["zanahoria", "perro", "nube", "noche", "gato",
+        "día", "casa", "babuino", "árbol"];
+
+        ordenar(words)
+        ordenar(atoz)
+        ordenar(ztoa)
+        console.log(words)
+        console.log(atoz)
+        console.log(ztoa)
+
+    </script>
+</html>

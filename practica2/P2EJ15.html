@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Ejercicio 15</title>
+    </head>
+    <body>
+        <form>
+            <input type="text" id="texto"/>
+            <input type="text" id="texto2"/>
+            <input type="button" value="Enviar" onclick="enviar()" id= "boton"/>
+        </form>
+    </body>
+    <script>
+        function enviar(){
+            s = document.getElementById("texto2").value;
+            document.getElementById("texto").value = s;
+            document.getElementById("boton").value= ("Aia me apretastes")
+        }
+    </script>
+ </html>

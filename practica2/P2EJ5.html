@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function arrayEquals(a, b) {
+            // implementar
+            if ((a!=null) && (b!=null) && (a.length === b.length)){
+                aux = false;
+                for (i = 0; i<a.length; i++) 
+                    aux = (a[i]===b[i])
+                return aux;
+            }
+            return false;
+        }
+        var a = [1,2,3,4];
+        var b = [1,2,3,4];
+        var c = [1,2,3,4,5];
+        var d = "Hola";
+        var e = null;
+        console.log(arrayEquals(a, a));
+        console.log(arrayEquals(a, b));
+        console.log(arrayEquals(b, c));
+        console.log(arrayEquals(e, c));
+        console.log(arrayEquals(c, d));
+        console.log(arrayEquals(e, e));
+    </script>
+
+</html>
