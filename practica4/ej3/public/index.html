@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 3</title>
+        <script>
+
+
+            function submit(){
+
+                const user = document.getElementById('user').value;
+                const pass = document.getElementById('pass').value;
+                const p = document.getElementById('error-text');
+
+                if(user != '' && pass != ''){
+                    if((user.split('.')[1] == 'com') && (user.includes('@')) && (user.indexOf('@') < user.indexOf('.com'))){
+                        
+
+                        //Configuracion para el FETCH
+                        const data = { user, pass };
+
+                        const options = {
+                            method: 'POST',
+                            headers:{
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        }
+                        
+                        //document.getElementsByTagName('p').innerText = '';
+
+
+                        //Fetch and print data
+                        fetch('/api',options)
+                            .then(((res) => res.json()))
+                            .then((json) => console.log(json));
+                            
+                        p.innerHTML = '';
+
+                    }
+                    else
+                    {
+
+                        p.innerHTML = 'Error - el email ingresado no es valido';
+
+                    }
+                }
+                else
+                {
+                    p.innerHTML = 'Error - llene los datos del formulario';
+
+
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <h1>Solve it!</h1>
+
+
+
+        <form>
+            <label for="user">Nombre de usuario:</label><br>
+            <input type="text" id="user"><br>
+            <label for="pass">Contraseña:</label><br>
+            <input type="text" id="pass">
+
+            
+        </form>
+        <br>
+
+        <button type="submit" id="subm" onclick="submit()">Ingresar</button>
+    
+        <br>
+
+        <p id="error-text"></p>
+    </body>
+
+</html>
