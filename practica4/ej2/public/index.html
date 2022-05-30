@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 2</title>
+        <script>
+
+
+            function submit(){
+
+                const user = document.getElementById('user').value;
+                const pass = document.getElementById('pass').value;
+
+
+                //Configuracion para el FETCH
+                const data = { user, pass };
+
+                const options = {
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+                
+                //Fetch and print data
+                fetch('/api',options)
+                    .then(((res) => res.json()))
+                    .then((json) => console.log(json));
+            }
+            
+
+        </script>
+    </head>
+
+    <body>
+        <h1>Solve it!</h1>
+
+
+
+        <form>
+            <label for="user">Nombre de usuario:</label><br>
+            <input type="text" id="user"><br>
+            <label for="pass">Contraseña:</label><br>
+            <input type="text" id="pass">
+
+            
+        </form>
+        <button type="submit" id="subm" onclick="submit()">Ingresar</button>
+    </body>
+
+</html>
